@@ -2,6 +2,8 @@ package com.sideeffectideas.android.caramel.tests.twitter;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,9 +26,9 @@ public class Twitter4jTests {
 				.setOAuthConsumerSecret(
 						"Hvxy9VDZ1fmONVZTHSxZcIlShjB4kSVfb893Wg8Zk")
 				.setOAuthAccessToken(
-						"614865099-DsK7nDKKPUQzcpU3d9hqBtSBuQ7hE9d16apOOYJL")
+						"614865099-eTGvqxrtExkt1ryre9u0Hqmz5Yu7wpmxvxiMj78D")
 				.setOAuthAccessTokenSecret(
-						"rOab8oRDafIKx128O0PSoOsSQx1IuNaW1GGuvM9CE");
+						"A6324qhZYtlPEzrZk9B14bR8fhk5e7zL22vejwH6Gn0");
 
 		TwitterFactory tf = new TwitterFactory(cb.build());
 		this.twitter = tf.getInstance();
@@ -38,7 +40,7 @@ public class Twitter4jTests {
 		for (Status status : timeLine) {
 			System.out.println(status.getText());
 		}
-		assertEquals(0, timeLine.size());
+		assertTrue(timeLine.size() > 0);
 	}
 
 	@Test
@@ -49,5 +51,14 @@ public class Twitter4jTests {
 		}
 		assertTrue(timeLine.size() > 0);
 	}
+
+//	 @Test
+//	 public void testICanUpdateMyStatus() throws TwitterException {
+//	 String statusUpdate = String.valueOf(new Date().getTime()) +
+//	 " #todosPutos";
+//	 Status status = this.twitter.updateStatus(statusUpdate);
+//	 ResponseList<Status> timeline = this.twitter.getUserTimeline();
+//	 assertTrue(timeline.contains(status));
+//	 }
 
 }
